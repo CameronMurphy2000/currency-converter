@@ -1,6 +1,6 @@
 const apiKey = '3d5d4dc5e856270ae07ded59';
 const baseCurrency = 'GBP';
-const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${baseCurrency}`;
+const apiUrl = `http://localhost:3000/api/v6/${apiKey}/latest/${baseCurrency}`;
 
 async function fetchCurrencies() {
     try {
@@ -21,9 +21,8 @@ async function fetchCurrencies() {
             option2.textContent = currency;
             toCurrency.appendChild(option2);
         });
-
     } catch (error) {
-        console.error('Erroe fetching currencies:', error);
+        console.error('Error fetching currencies:', error);
     }
 }
 
@@ -33,15 +32,15 @@ async function convertCurrency() {
     const amount = document.getElementById('amount').value;
 
     if (!fromCurrency || !toCurrency || !amount) {
-        alert('Please fill in all fields.');
+        alert('Please fill in all fields');
         return;
     }
 
     try {
-        const response = await fetch(`${apiUrl}&base=${fromCurrency}`);
+        const conversionUrl = `http://localhost:3000/api/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`;
+        const response = await fetch(conversionUrl);
         const data = await response.json();
-        const rate = data.conversion_rates[toCurrency];
-        const result = amount * rate;
+        const result = data.conversion_result;
         document.getElementById('result').textContent = `${amount} ${fromCurrency} = ${result.toFixed(2)} ${toCurrency}`;
     } catch (error) {
         console.error('Error converting currency:', error);
