@@ -1,6 +1,6 @@
 const apiKey = '3d5d4dc5e856270ae07ded59';
 const baseCurrency = 'GBP';
-const apiUrl = `http://localhost:3000/api/v6/${apiKey}/latest/${baseCurrency}`;
+const apiUrl = `https://v6.exchangerate-api.com/v6/3d5d4dc5e856270ae07ded59/latest/${baseCurrency}`;
 
 async function fetchCurrencies() {
     try {
@@ -37,7 +37,7 @@ async function convertCurrency() {
     }
 
     try {
-        const conversionUrl = `http://localhost:3000/api/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`;
+        const conversionUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromCurrency}/${toCurrency}/${amount}`;
         const response = await fetch(conversionUrl);
         const data = await response.json();
         const result = data.conversion_result;
