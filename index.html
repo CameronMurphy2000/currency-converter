@@ -7,9 +7,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <!-- Widget Container-->
+
     <div class="boxes">
+
+        <!-- Currency Converter -->
+
         <div class="container">
             <div>
+                <h4 style="margin-top: 0;">Currency Converter</h4>
                 <label for="from-currency">From:</label>
                 <select id="from-currency"></select>
                 <input type="number" id="amount" placeholder="Amount">
@@ -22,7 +29,10 @@
             <div id="result"></div>
         </div>
 
+        <!-- Weather App -->
+
         <div class="container">
+            <h4 style="margin-top: 0;">Weather Checker</h4>
             <form class="weatherForm">
                 <input type="text" class="cityInput" placeholder="Enter City">
                 <button type="submit">Get Weather</button> 
@@ -30,6 +40,23 @@
 
             <div class="card" style="display: none;">
             </div>
+        </div>
+
+        <!-- Speed Converter -->
+
+        <div class="container">
+            <div>
+                <h4 style="margin-top: 0;">Speed Converter</h4>
+                <label for="from-speed">From:</label>
+                <select id="from-speed"></select>
+                <input type="number" id="speed" placeholder="Speed">
+            </div>
+            <div>
+                <label for="to-speed">To:</label>
+                <select id="to-speed"></select>
+            </div>
+            <button onclick="convertSpeed()">Convert</button>
+            <div id="speedResult"></div>
         </div>
     </div>
     <script src="script.js"></script>
