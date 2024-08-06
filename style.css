@@ -34,3 +34,11 @@ label {
     justify-content: center;
     align-items: center;
 }
+
+#number {
+    margin-bottom: 10px;
+}
+
+#limit {
+    margin-bottom: 10px;
+}
